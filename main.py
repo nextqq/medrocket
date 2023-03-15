@@ -40,7 +40,10 @@ def main():
     template = get_template()
 
     for pk, user in users.items():
-        user.create_file(tasks_dir, template)
+        try:
+            user.create_file(tasks_dir, template)
+        except Exception:
+            continue
 
 
 if __name__ == "__main__":
